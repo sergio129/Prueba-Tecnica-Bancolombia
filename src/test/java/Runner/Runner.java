@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         glue = "Stepsdefinitions",
         features = "src/test/resources/features/",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@Reto",
+        tags = "@Ciclos",
         monochrome = true
 
 )

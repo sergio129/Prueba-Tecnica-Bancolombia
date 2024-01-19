@@ -6,6 +6,7 @@ import Interacciones.FormulariofechasInteraction;
 import Modelos.LoginModel;
 import Modelos.UrlModel;
 import Tareas.CantidadvecesTask;
+import Tareas.CiclosEjecucionTask;
 import Tareas.FormularioExpresionTask;
 import Tareas.LoginTask;
 import Utilidades.Leerdatos;
@@ -64,5 +65,10 @@ public class RetoStepdefs {
     @When("Escribimos la cantidad de veces la letras estraidas")
     public void escribimosLaCantidadDeVecesLaLetrasEstraidas() {
         actor.attemptsTo(CantidadvecesTask.data());
+    }
+
+    @When("ejecutamos los ciclos de la prueba de automatizacion")
+    public void ejecutamosLosCiclosDeLaPruebaDeAutomatizacion() {
+        actor.attemptsTo(CiclosEjecucionTask.datos());
     }
 }

@@ -14,5 +14,7 @@ public class RetoBancolombiaPage {
     public static final Target Numero_veces = Target.the("numero de veces de una letra").located(By.xpath("/html/body/div[2]/form/div[1]/div[1]/p"));
     public static final Target Fecha_dias = Target.the("capturar el numero de dias que se quiere mirar la fecha").located(By.xpath("/html/body/div[2]/form/div[1]/div[2]/p"));
 
+    public static final Target Campo_imagenes = Target.the("").located(By.name("number"));
+    public static final Target Boton_enviar = Target.the("").located(By.xpath("/html/body/div[2]/form/div[2]/button"));
 
 }
