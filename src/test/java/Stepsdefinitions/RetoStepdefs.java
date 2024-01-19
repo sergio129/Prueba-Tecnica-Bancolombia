@@ -1,10 +1,13 @@
 package Stepsdefinitions;
 
+import Interacciones.FormularioExpresioninteraccion;
 import Modelos.LoginModel;
 import Modelos.UrlModel;
+import Tareas.FormularioExpresionTask;
 import Tareas.LoginTask;
 import Utilidades.Leerdatos;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
@@ -44,4 +47,9 @@ public class RetoStepdefs {
         }
     }
 
+    @And("Completamos operacion matematica")
+    public void completamosOperacionMatematica() throws InterruptedException {
+       actor.attemptsTo(FormularioExpresionTask.datos());
+       Thread.sleep(5000);
+    }
 }
