@@ -1,5 +1,6 @@
 package Stepsdefinitions;
 
+import Interacciones.CantidadvecesInteraction;
 import Interacciones.FormularioExpresioninteraccion;
 import Modelos.LoginModel;
 import Modelos.UrlModel;
@@ -17,6 +18,13 @@ import net.serenitybdd.screenplay.actions.Open;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
+import static Interfaces.RetoBancolombiaPage.Campo_Fecha;
 import static Interfaces.RetoBancolombiaPage.Campo_letras;
 
 public class RetoStepdefs {
@@ -48,8 +56,23 @@ public class RetoStepdefs {
     }
 
     @And("Completamos operacion matematica")
-    public void completamosOperacionMatematica() throws InterruptedException {
-       actor.attemptsTo(FormularioExpresionTask.datos());
-       Thread.sleep(5000);
+    public void completamosOperacionMatematica() {
+        actor.attemptsTo(FormularioExpresionTask.datos());
+
+    }
+
+    @And("Completamos el formulario de fecha")
+    public void completamosElFormularioDeFecha() throws InterruptedException {
+        LocalDate fechaActual = LocalDate.now().plusDays(25);
+        String formatoFecha = "dd/MM/yyyy";
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(formatoFecha);
+        String fechaComoString = fechaActual.format(dtf);
+        actor.attemptsTo(Enter.theValue(fechaComoString).into(Campo_Fecha));
+        Thread.sleep(5000);
+    }
+
+    @When("Escribimos la cantidad de veces la letras estraidas")
+    public void escribimosLaCantidadDeVecesLaLetrasEstraidas() {
+        actor.attemptsTo(CantidadvecesInteraction.data());
     }
 }
