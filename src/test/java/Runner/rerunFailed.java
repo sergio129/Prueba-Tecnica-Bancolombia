@@ -6,8 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
+
+        features = "@target/rerunFailed",
         glue = "Stepsdefinitions",
-        features = "src/test/resources/features/",
         plugin = {"rerun:target/rerunFailed/fallidos.txt"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         tags = "@Ciclos",
@@ -15,6 +16,6 @@ import org.junit.runner.RunWith;
 
 )
 
-public class Runner {
+public class rerunFailed {
 
 }
